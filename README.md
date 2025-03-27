@@ -1,44 +1,85 @@
- Project Overview
-This project analyzes customer churn in a telecom company using SQL, Machine Learning (Python), and Power BI. The goal is to identify churn patterns, improve customer retention, and optimize business strategies.
+# 📊 Telecom Customer Churn & Retention Analysis
 
-Business Objective
-Identify high-risk customers who are likely to churn.
+## 📌 Project Overview
+This project aims to analyze customer churn in a telecom company using **Power BI**. The objective is to **identify key factors influencing churn**, helping the business retain customers and improve profitability.
 
-Understand key reasons for churn (customer service calls, pricing, plan types, etc.).
+## 🎯 Business Goal
+- Identify **high-risk customers** and take preventive actions.
+- Understand the impact of **customer service, plan types, and charges** on churn.
+- Provide data-driven insights to **reduce churn and optimize customer retention strategies**.
 
-Suggest actionable strategies to reduce churn and increase retention.
+## 📂 Dataset
+- **File Name:** `churn-bigml-80.csv`
+- Contains telecom customer data with details such as:
+  - Customer usage behavior (minutes, charges, etc.)
+  - Subscription plans (International Plan, Voicemail Plan)
+  - Customer service calls
+  - Churn status (Yes/No)
 
-🛠️ Tech Stack
-SQL (Data Cleaning & Analysis)
+## 🔍 Key Insights & KPIs
+1. **Total Customers** → Distinct count of Customer ID.
+2. **Churn Rate (%)** → `(Churned Customers / Total Customers) * 100`.
+3. **Average Total Charge** → `AVG(Total_Charge)`.
+4. **High-Risk Customers (%)** → Customers with high usage and likelihood to churn.
 
-Python (Machine Learning Models)
+## 📊 Power BI Dashboard & Visualizations
+The dashboard is divided into **three sections**:
 
-Power BI (Dashboard & Reporting)
+### 🔹 1. Summary KPIs (Top Left - Card Visuals)
+- ✅ **Total Customers**  
+- ✅ **Churn Rate (%)**  
+- ✅ **Avg Total Charge**  
+- ✅ **High-Risk Customers (%)**  
 
-Exploratory Data Analysis (EDA)
-Performed in SQL & Excel to find:
-✅ Churn trends based on plan types & customer service calls
-✅ Identified churn rate per state
-✅ Average call duration & revenue loss
+### 🔹 2. Customer Behavior & Churn Analysis (Middle Section)
+- **Churn Rate by Customer Category** *(Stacked Bar Chart)*  
+  - X-Axis: Customer Category (International Plan, Voicemail Plan)  
+  - Y-Axis: Count of Customers  
+  - Legend: Churn (Yes/No)  
 
-🤖 Machine Learning Model
-Used Python (Scikit-Learn) to predict churn:
-✅ Logistic Regression
-✅ Decision Tree
-✅ Random Forest (Best Model → 94.7% Accuracy)
+- **Customer Service Calls vs. Churn** *(Stacked Bar Chart)*  
+  - X-Axis: Customer Service Calls  
+  - Y-Axis: Count of Customers  
 
-📈 Power BI Dashboard
-Created a fully interactive dashboard to visualize churn insights:
-✅ Churn Rate by Customer Category (Stacked Bar Chart)
-✅ Churn Distribution by Plan Type (Pie Chart)
-✅ Churn Rate by State (Map)
-✅ Total Charge by International Plan (Clustered Column Chart)
+- **Churn Distribution by Plan Type** *(Pie Chart)*  
+  - Legend: International Plan, Voicemail Plan  
+  - Values: Count of Customers  
 
-📢 Key Takeaways
-High-risk customers have long call durations & frequent customer service calls.
+### 🔹 3. Total Charge & Churn Impact (Bottom Section)
+- **Churn vs. Total Charge** *(Stacked Column Chart)*  
+  - X-Axis: International Plan & Voicemail Plan  
+  - Y-Axis: Sum of Total Charge  
 
-Customers with international plans & high total charges have a higher churn rate.
+- **Churn Rate by State** *(Filled Map)*  
+  - Location: State  
+  - Value: Churn Rate  
 
-Retention strategies should include discounts, improved customer support, and flexible plans.
+- **Total Charge by International Plan** *(Clustered Column Chart)*  
+  - X-Axis: International Plan  
+  - Y-Axis: Sum of Total Charge  
 
-This project provides valuable business insights to reduce churn and improve customer retention. By using SQL, Machine Learning, and Power BI, we can help telecom companies take data-driven actions to enhance customer satisfaction.
+## 🛠️ DAX Calculations
+```DAX
+Total_Charge = [Total_Day_Minutes] * 0.5
+
+Churn_Rate = DIVIDE(COUNTROWS(FILTER('churn-bigml-80', 'churn-bigml-80'[Churn] = 1)), COUNTROWS('churn-bigml-80')) * 100
+
+High_Risk_Customers = DIVIDE(COUNTROWS(FILTER('churn-bigml-80', 'churn-bigml-80'[Total_Day_Minutes] > 200)), COUNTROWS('churn-bigml-80')) * 100
+
+Retention_Rate = 100 - [Churn_Rate]
+
+Avg_Total_Charge = AVERAGE('churn-bigml-80'[Total_Charge])
+```
+
+## 🚀 How This Analysis Helps the Business
+✔ **Reduces churn** by identifying customers at risk.  
+✔ **Improves customer service** based on service call analysis.  
+✔ **Optimizes pricing strategies** by analyzing total charges.  
+✔ **Enhances revenue & profitability** by increasing retention.  
+
+## 📢 Conclusion
+This Power BI dashboard provides **actionable insights** to help the telecom company **reduce churn and increase customer retention**. 📈  
+
+---
+🔗 **Project by:** [Your Name]  
+📅 **Date:** [Your Date]  
