@@ -81,5 +81,5 @@ Avg_Total_Charge = AVERAGE('churn-bigml-80'[Total_Charge])
 This Power BI dashboard provides **actionable insights** to help the telecom company **reduce churn and increase customer retention**. 📈  
 
 ---
-🔗 **Project by:** [Your Name]  
-📅 **Date:** [Your Date]  
+🔗 **Project by:** Asha hiremath  
+📅 **Date:** 3/27/2025  
