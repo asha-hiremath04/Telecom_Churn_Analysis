@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS telecom_churn_analysis;
+CREATE DATABASE  telecom_churn_analysis;
 USE telecom_churn_analysis;
 
 CREATE TABLE churn_bigml_80 (
