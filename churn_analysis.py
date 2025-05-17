@@ -5,7 +5,7 @@ import seaborn as sns
 
 # Load the dataset
 df = pd.read_csv("churn-bigml-80.csv")  # Change to the correct file path if needed
-"""
+
 # Display first few rows
 print(df.head())
 
@@ -53,13 +53,6 @@ sns.heatmap(numeric_df.corr(), annot=True, cmap="coolwarm", linewidths=0.5)
 plt.title("Feature Correlation Heatmap")
 plt.show()
 
-print(df.dtypes)
-"""
-from sklearn.preprocessing import LabelEncoder
 
-label_encoder = LabelEncoder()
-df['International plan'] = label_encoder.fit_transform(df['International plan'])
-df['Voice mail plan'] = label_encoder.fit_transform(df['Voice mail plan'])
 
-df.drop(['State'], axis=1, inplace=True)
 
