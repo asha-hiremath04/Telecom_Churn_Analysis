@@ -146,20 +146,3 @@ SELECT
     SUM(CASE WHEN Churn = '1' THEN 1 ELSE 0 END) AS Churned_Customers
 FROM churn_bigml_80 
 GROUP BY Account_Length_Group;
-
-
-
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
